@@ -6,160 +6,518 @@
   <title>Swati Verma | Marketing Strategy Portfolio</title>
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&f[]=clash-display@500,600&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --text-xs:clamp(0.75rem,0.72rem + 0.2vw,0.875rem);
-      --text-sm:clamp(0.9rem,0.84rem + 0.25vw,1rem);
-      --text-base:clamp(1rem,0.96rem + 0.2vw,1.08rem);
-      --text-lg:clamp(1.18rem,1.02rem + 0.6vw,1.48rem);
-      --text-xl:clamp(2rem,1.45rem + 1.4vw,2.9rem);
-      --space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;
-      --color-bg:#ffffff;--color-surface:#f8fafc;--color-border:rgba(15,23,42,0.09);--color-text:#0f172a;--color-text-muted:#475569;--color-text-faint:#64748b;--color-primary:#13294b;
-      --radius-lg:1.1rem;--radius-xl:1.5rem;--shadow-lg:0 30px 70px rgba(15,23,42,0.08);
-      --font-display:'Clash Display','Satoshi',sans-serif;--font-body:'Satoshi',Inter,sans-serif;--content:1120px;
+    :root {
+      --font-display: 'Clash Display', 'Satoshi', sans-serif;
+      --font-body: 'Satoshi', sans-serif;
+      --content: 1120px;
+      --color-bg: #ffffff;
+      --color-surface: #f8fafc;
+      --color-border: rgba(15,23,42,0.09);
+      --color-text: #0f172a;
+      --color-muted: #475569;
+      --color-faint: #94a3b8;
+      --color-primary: #13294b;
+      --radius-lg: 1.1rem;
+      --radius-xl: 1.5rem;
+      --shadow: 0 2px 24px rgba(15,23,42,0.06);
     }
-    *{box-sizing:border-box;margin:0;padding:0} body{font-family:var(--font-body);font-size:var(--text-base);line-height:1.68;background:var(--color-bg);color:var(--color-text)}
-    .container{width:min(calc(100% - 2rem),var(--content));margin:auto} section{padding:var(--space-16) 0} .eyebrow{font-size:var(--text-xs);letter-spacing:.18em;text-transform:uppercase;color:var(--color-primary);font-weight:700;margin-bottom:var(--space-3)}
-    h1,h2,h3{font-family:var(--font-display);line-height:1.05} h1{font-size:clamp(3.6rem,8vw,6.5rem)} h2{font-size:var(--text-xl);margin-bottom:var(--space-8)} h3{font-size:1.5rem}
-    p{color:var(--color-text-muted)}
-    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:var(--space-8);align-items:start}.hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4);margin-top:var(--space-8)}
-    .stat,.hero-panel,.card,.case,.exp-card,.list-card,.contact-card,.approach-card{background:linear-gradient(180deg,#fff,var(--color-surface));border:1px solid var(--color-border);border-radius:var(--radius-xl);box-shadow:var(--shadow-lg)}
-    .stat{padding:var(--space-6)} .stat strong{display:block;font-size:3rem;font-family:var(--font-display);color:var(--color-primary);line-height:1;margin-bottom:var(--space-3)}
-    .hero-panel{padding:var(--space-8);position:relative;overflow:hidden}.tag-list{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-5)} .tag{padding:.85rem 1.25rem;border-radius:999px;border:1px solid rgba(19,41,75,.12);background:#f7fbff;color:var(--color-text-muted)}
-    .section-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:var(--space-8)} .cards-2,.lists-2,.approach-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-5)} .card,.list-card,.approach-card,.contact-card{padding:var(--space-6)}
-    .cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-5)} .case{padding:var(--space-6);height:100%} .case-meta,.exp-date{font-size:var(--text-xs);letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-faint);font-weight:700;margin-bottom:var(--space-3)} .case h3{margin-bottom:var(--space-4)} .case ul,.list-card ul{padding-left:1.1rem;color:var(--color-text-muted)} .impact{margin-top:var(--space-5);padding-top:var(--space-4);border-top:1px solid var(--color-border)} .impact-label{font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--color-primary);font-weight:700;margin-bottom:var(--space-2)}
-    .exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)} .exp-card{padding:1.75rem var(--space-6);display:flex;flex-direction:column;gap:var(--space-3)} .edu-card{grid-column:span 2}.exp-role{font-size:var(--text-sm);font-weight:600;color:var(--color-text-muted)}
-    .contact-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:var(--space-8)}
-    @media(max-width:900px){.hero-grid,.section-grid,.contact-wrap,.cases,.exp-grid,.cards-2,.lists-2,.approach-grid{grid-template-columns:1fr}.edu-card{grid-column:span 1}h1{font-size:3.2rem}}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-size: 1rem; line-height: 1.68; background: var(--color-bg); color: var(--color-text); }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(255,255,255,0.93); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--color-border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 56px;
+    }
+    .nav-logo { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--color-primary); text-decoration: none; letter-spacing: -0.01em; }
+    .nav-links { display: flex; gap: 0.2rem; list-style: none; }
+    .nav-links a { font-size: 0.77rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); text-decoration: none; padding: 0.38rem 0.85rem; border-radius: 6px; transition: background 0.15s, color 0.15s; }
+    .nav-links a:hover { background: var(--color-surface); color: var(--color-primary); }
+    .nav-cta { font-size: 0.77rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-primary); text-decoration: none; padding: 0.42rem 1.1rem; border: 1.5px solid var(--color-primary); border-radius: 6px; transition: background 0.15s, color 0.15s; }
+    .nav-cta:hover { background: var(--color-primary); color: #fff; }
+
+    /* LAYOUT */
+    .container { width: min(calc(100% - 2rem), var(--content)); margin: auto; }
+    section { padding: 5rem 0; }
+    .eyebrow { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-primary); font-weight: 700; margin-bottom: 0.75rem; }
+    h1, h2, h3 { font-family: var(--font-display); line-height: 1.05; }
+    h1 { font-size: clamp(3.4rem, 7.5vw, 6rem); letter-spacing: -0.03em; }
+    h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); letter-spacing: -0.02em; margin-bottom: 2.5rem; }
+    h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
+    p { color: var(--color-muted); }
+
+    .card-base { background: linear-gradient(160deg, #fff 60%, var(--color-surface)); border: 1px solid var(--color-border); border-radius: var(--radius-xl); box-shadow: var(--shadow); }
+
+    /* HERO */
+    .hero { padding-top: 9rem; padding-bottom: 5rem; border-bottom: 1px solid var(--color-border); }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: start; }
+    .hero-tagline { margin-top: 1.25rem; font-size: 1.05rem; max-width: 54ch; color: var(--color-muted); font-weight: 400; line-height: 1.7; }
+    .hero-actions { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+    .btn-primary { font-family: var(--font-body); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--color-primary); color: #fff; text-decoration: none; padding: 0.7rem 1.6rem; border-radius: 8px; transition: opacity 0.15s; display: inline-block; }
+    .btn-primary:hover { opacity: 0.84; }
+    .btn-ghost { font-family: var(--font-body); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: transparent; color: var(--color-primary); text-decoration: none; padding: 0.7rem 1.6rem; border-radius: 8px; border: 1.5px solid var(--color-border); transition: border-color 0.15s, background 0.15s; display: inline-block; }
+    .btn-ghost:hover { border-color: var(--color-primary); background: var(--color-surface); }
+    .hero-panel { padding: 2rem; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .tag { padding: 0.5rem 1rem; border-radius: 999px; border: 1px solid rgba(19,41,75,0.12); background: #f7fbff; color: var(--color-muted); font-size: 0.82rem; font-weight: 500; }
+    .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2.5rem; }
+    .stat { padding: 1.25rem 1.5rem; }
+    .stat strong { display: block; font-size: 2.4rem; font-family: var(--font-display); color: var(--color-primary); line-height: 1; margin-bottom: 0.4rem; }
+    .stat span { font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-faint); font-weight: 500; }
+
+    /* CASE STUDIES */
+    .cases-section { background: var(--color-surface); }
+    .filter-bar { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .filter-btn { font-family: var(--font-body); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.42rem 1.1rem; border-radius: 999px; border: 1px solid var(--color-border); background: #fff; color: var(--color-muted); cursor: pointer; transition: all 0.15s; }
+    .filter-btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+    .filter-btn.active { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+
+    .cases { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+    .case { background: linear-gradient(160deg, #fff 60%, var(--color-surface)); border: 1px solid var(--color-border); border-radius: var(--radius-xl); box-shadow: var(--shadow); display: flex; flex-direction: column; transition: opacity 0.2s; }
+    .case.hidden { display: none; }
+    .case-header { padding: 1.5rem 1.5rem 0; cursor: pointer; user-select: none; }
+    .case-meta { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-faint); font-weight: 700; margin-bottom: 0.6rem; }
+    .case-toggle { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; }
+    .case h3 { font-size: 1.05rem; line-height: 1.35; color: var(--color-text); }
+    .case-chevron { flex-shrink: 0; width: 22px; height: 22px; border: 1px solid var(--color-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 3px; transition: transform 0.2s, background 0.15s; color: var(--color-faint); }
+    .case.open .case-chevron { transform: rotate(180deg); background: var(--color-surface); }
+    .sector-pill { display: inline-block; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.65rem; border-radius: 999px; margin: 0.75rem 0 0; }
+    .case-summary { padding: 0.7rem 1.5rem; }
+    .case-summary p { font-size: 0.88rem; color: var(--color-muted); line-height: 1.6; }
+    .case-detail { padding: 0 1.5rem 1.5rem; display: none; }
+    .case.open .case-detail { display: block; }
+    .case-detail ul { padding-left: 1.1rem; margin: 0.5rem 0 1rem; }
+    .case-detail ul li { font-size: 0.87rem; color: var(--color-muted); margin-bottom: 0.35rem; line-height: 1.55; }
+    .impact { margin-top: 1rem; padding: 1rem; background: rgba(19,41,75,0.03); border-radius: 0.65rem; border: 1px solid var(--color-border); }
+    .impact-label { font-size: 0.67rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-primary); font-weight: 700; margin-bottom: 0.3rem; }
+    .impact p { font-size: 0.85rem; }
+
+    /* EXPERIENCE */
+    .exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .exp-card { padding: 1.75rem; display: flex; flex-direction: column; gap: 0.45rem; }
+    .exp-date { font-size: 0.67rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-faint); font-weight: 700; }
+    .exp-card h3 { font-size: 1.05rem; }
+    .exp-role { font-size: 0.82rem; font-weight: 600; color: var(--color-muted); }
+    .exp-card p { font-size: 0.87rem; }
+    .edu-card { grid-column: span 2; }
+
+    /* TOOLS */
+    .lists-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    .list-card { padding: 1.5rem; }
+    .list-card h3 { font-size: 1rem; margin-bottom: 1rem; }
+    .list-card ul { padding-left: 1.1rem; }
+    .list-card ul li { font-size: 0.87rem; color: var(--color-muted); margin-bottom: 0.3rem; }
+    .span-2 { grid-column: span 2; }
+
+    /* CONTACT */
+    .contact-wrap { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 3rem; align-items: start; }
+    .cards-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .contact-card { padding: 1.5rem; }
+    .contact-card h3 { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-faint); margin-bottom: 0.5rem; font-family: var(--font-body); }
+    .contact-card a { color: var(--color-primary); text-decoration: none; font-weight: 500; font-size: 0.9rem; }
+    .contact-card p { font-size: 0.9rem; font-weight: 500; color: var(--color-text); }
+
+    /* FOOTER */
+    footer { padding: 1.75rem 0; border-top: 1px solid var(--color-border); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-faint); }
+
+    @media (max-width: 900px) {
+      .hero-grid, .contact-wrap { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .cases, .exp-grid, .lists-2 { grid-template-columns: 1fr; }
+      .edu-card, .span-2 { grid-column: span 1; }
+      h1 { font-size: 3rem; }
+      nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+    }
   </style>
 </head>
 <body>
-  <main>
-    <section>
-      <div class="container">
-        <div class="hero-grid">
-          <div>
-            <p class="eyebrow">Marketing Strategy &bull; Digital Marketing &bull; Data-Driven Business Growth</p>
-            <h1>Swati Verma</h1>
-            <p style="margin-top:1rem;max-width:60ch">Marketing strategist and consultant with 6 years of experience across customer strategy, digital marketing, brand positioning, first-party data, and go-to-market execution. I bridge business objectives with actionable marketing decisions across B2B and B2C contexts.</p>
-            <div class="hero-stats">
-              <div class="stat"><strong>6</strong>Years of experience</div>
-              <div class="stat"><strong>5+</strong>Industries served</div>
-              <div class="stat"><strong>3+</strong>Geographies</div>
-              <div class="stat"><strong>10+</strong>Engagements delivered</div>
-            </div>
-          </div>
-          <div class="hero-panel">
-            <p class="eyebrow" style="margin-bottom:var(--space-4)">Core focus areas</p>
-            <div class="tag-list">
-              <span class="tag">Marketing Strategy</span><span class="tag">Customer Strategy</span><span class="tag">Digital Marketing</span><span class="tag">Brand Positioning</span><span class="tag">First-Party Data</span><span class="tag">Go-to-Market</span><span class="tag">CX Design</span><span class="tag">Campaign Enablement</span><span class="tag">Segmentation</span><span class="tag">Content Strategy</span><span class="tag">Analytics &amp; Insights</span><span class="tag">Process Improvement</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section style="background:var(--color-surface)">
-      <div class="container">
-        <p class="eyebrow">Selected work</p>
-        <h2>Case studies</h2>
-        <div class="cases">
-          <article class="case"><p class="case-meta">FMCG &middot; India</p><h3>First-party data strategy for a leading FMCG company</h3><p>A major FMCG brand wanted to improve targeted marketing through stronger first-party data acquisition and activation.</p><ul><li>Developed a 1P data strategy aligned to campaign targeting needs</li><li>Created customer segments for more precise digital communications</li><li>Coordinated with martech and agency partners on data capture and compliance</li></ul><div class="impact"><p class="impact-label">Outcome</p><p>Delivered a data strategy and segmentation framework that enabled more targeted campaign communications and improved martech partner alignment.</p></div></article>
-          <article class="case"><p class="case-meta">Automotive &middot; India</p><h3>SEO and content strategy support for a leading automotive brand</h3><p>A leading automotive company wanted to strengthen organic visibility and improve how digital content aligned with high-intent search behaviour.</p><ul><li>Conducted keyword research and search term analysis to identify relevant high-traffic opportunities</li><li>Used analytics tools such as GA4 and SEMRush to assess website performance and SEO effectiveness</li><li>Supported data-led content and optimisation decisions for stronger digital visibility</li></ul><div class="impact"><p class="impact-label">Outcome</p><p>Delivered a structured SEO and content insight base that helped guide optimisation priorities and improve search-focused decision-making.</p></div></article>
-          <article class="case"><p class="case-meta">Digital Content &amp; Media &middot; 2019</p><h3>Content strategy and planning for a digital content brand</h3><p>A digital content business needed a more structured content planning approach to improve publishing consistency and brand positioning across channels.</p><ul><li>Developed a content plan and editorial calendar for social media platforms</li><li>Supported timely content creation and publishing workflows</li><li>Worked with SEO and content tools such as WordPress, SEMRush, Ubersuggest, and Mouseflow</li></ul><div class="impact"><p class="impact-label">Outcome</p><p>Established a more consistent content planning cadence and stronger content operations foundation for digital publishing.</p></div></article>
-          <article class="case"><p class="case-meta">Beauty &amp; Personal Care &middot; Global</p><h3>Competitive benchmarking for a global beauty brand</h3><p>A global beauty brand needed sharper visibility into B2B customer trends and competitor activity to support strategic decision-making.</p><ul><li>Conducted in-depth competitive benchmarking and secondary research</li><li>Identified emerging B2B customer trends and competitor strategies</li><li>Analysed findings and translated them into structured benchmarking outputs for stakeholders</li></ul><div class="impact"><p class="impact-label">Outcome</p><p>Delivered a benchmarking view of the competitive landscape that helped stakeholders assess market direction and strategic opportunity areas.</p></div></article>
-          <article class="case"><p class="case-meta">Food &amp; Beverage &middot; Middle East</p><h3>Marketing and store-process optimisation for an F&amp;B franchise</h3><p>A regional F&amp;B retail operator needed better visibility into marketing and store operations workflows to reduce bottlenecks and improve team alignment.</p><ul><li>Mapped current-state marketing and store processes end-to-end</li><li>Identified inefficiencies and redundancies across functions</li><li>Recommended target operating model improvements</li></ul><div class="impact"><p class="impact-label">Outcome</p><p>Produced a process assessment with prioritised recommendations that enabled the client to reduce cross-functional friction and improve operational clarity.</p></div></article>
-          <article class="case"><p class="case-meta">Healthcare &middot; North America</p><h3>Commercialization strategy for a healthcare data platform</h3><p>A leading pharmacy solutions provider wanted sharper clarity on its data-platform value proposition, priority customer segments, and monetization pathways.</p><ul><li>Conducted stakeholder interviews to identify key offerings and customer needs</li><li>Translated insights into potential monetization models</li><li>Supported competitive analysis to sharpen positioning and commercial strategy</li></ul><div class="impact"><p class="impact-label">Outcome</p><p>Delivered a structured commercialization framework and segment-level value propositions used to guide platform go-to-market planning.</p></div></article>
-          <article class="case"><p class="case-meta">Digital Services &middot; Europe</p><h3>Audience insight and communication planning for a digital platform</h3><p>A digital platform wanted to better understand usage behaviour and audience patterns to shape more effective communication planning.</p><ul><li>Analysed website usage survey data to identify user patterns and behavioural trends</li><li>Assessed target audience characteristics and emerging themes from the data</li><li>Used insights to support communication strategy development</li></ul><div class="impact"><p class="impact-label">Outcome</p><p>Produced audience insight inputs that helped inform communication planning and improve relevance of messaging decisions.</p></div></article>
-          <article class="case"><p class="case-meta">B2B Manufacturing &middot; Global</p><h3>Sustainability-led brand positioning for a global materials business</h3><p>A global leather and materials business needed a stronger sustainability story to position the brand more competitively in international B2B markets.</p><ul><li>Identified key sustainability KPIs relevant to the industry</li><li>Shaped messaging to articulate implemented practices compellingly</li><li>Supported development of a sustainability-led marketing campaign</li></ul><div class="impact"><p class="impact-label">Outcome</p><p>Delivered a sustainability positioning framework and campaign narrative that strengthened the brand's credibility in international B2B markets.</p></div></article>
-          <article class="case"><p class="case-meta">Analytics Consulting &middot; Global</p><h3>Pre-sales and solution design for sales-force optimisation</h3><p>At a leading analytics and consulting firm, I supported pre-sales consulting and solution discovery for sales-operations optimisation work.</p><ul><li>Prepared proof-of-concepts and pilot implementations</li><li>Designed incentive compensation plans for pharma clients</li><li>Facilitated stakeholder workshops to uncover pain points</li></ul><div class="impact"><p class="impact-label">Outcome</p><p>Supported multiple successful pre-sales engagements resulting in new client wins and pilot deployments for sales-force effectiveness solutions.</p></div></article>
-          <article class="case"><p class="case-meta">Retail Banking &middot; UK</p><h3>Customer experience review for a leading retail bank</h3><p>A major retail bank was looking to improve customer outcomes while reducing effort across service processes.</p><ul><li>Conducted end-to-end service experience reviews with stakeholders</li><li>Shaped a scalable CX review methodology</li><li>Identified high-impact improvement opportunities across customer touchpoints</li></ul><div class="impact"><p class="impact-label">Outcome</p><p>Delivered a CX improvement roadmap and a repeatable review methodology adopted by the client's internal team for ongoing service evaluation.</p></div></article>
-        </div>
-      </div>
-    </section>
+<nav>
+  <a href="#top" class="nav-logo">Swati Verma</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#tools">Tools</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get in touch</a>
+</nav>
 
-    <section>
-      <div class="container">
-        <p class="eyebrow">Experience</p>
-        <h2>Career snapshot.</h2>
-        <div class="exp-grid">
-          <div class="exp-card"><span class="exp-date">AUG 2022 &mdash; PRESENT</span><h3>frog, Capgemini Invent</h3><p class="exp-role">Manager</p><p>Leading customer strategy, marketing transformation, CX, and digital engagements for clients across India and international markets.</p></div>
-          <div class="exp-card"><span class="exp-date">JUN 2021 &mdash; JUL 2022</span><h3>Axtria</h3><p class="exp-role">Senior Associate</p><p>Pre-sales consulting, solution design, and delivery of sales-force and marketing optimisation work for global life sciences clients.</p></div>
-          <div class="exp-card"><span class="exp-date">NOV 2017 &mdash; MAY 2018</span><h3>Delivery Hero</h3><p class="exp-role">Global Content Associate</p><p>Earlier role contributing to business and growth-oriented work in a fast-moving consumer platform environment.</p></div>
-          <div class="exp-card"><span class="exp-date">MAY 2017 &mdash; OCT 2017</span><h3>Anuation</h3><p class="exp-role">Business Development Associate</p><p>Early-career experience in a business-focused role that strengthened structured coordination and business problem solving.</p></div>
-          <div class="exp-card edu-card"><span class="exp-date">EDUCATION</span><h3>MBA, IIM Indore</h3><p>Specialisation in Marketing and Strategy, 2021.</p><h3 style="margin-top:1rem">BTech, Chemical Engineering</h3><p>HBTI Kanpur, 2016.</p></div>
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-grid" id="about">
+      <div>
+        <p class="eyebrow">Marketing Strategy · Digital Marketing · Data-Driven Growth</p>
+        <h1>Swati<br>Verma</h1>
+        <p class="hero-tagline">Marketing strategist and consultant with 6+ years bridging customer strategy, first-party data, digital marketing, and CX transformation — across FMCG, healthcare, banking, and F&B, in India and internationally.</p>
+        <div class="hero-actions">
+          <a href="#work" class="btn-primary">View case studies</a>
+          <a href="#contact" class="btn-ghost">Get in touch</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat card-base"><strong>6+</strong><span>Years experience</span></div>
+          <div class="stat card-base"><strong>5</strong><span>Industries</span></div>
+          <div class="stat card-base"><strong>4</strong><span>Geographies</span></div>
+          <div class="stat card-base"><strong>10+</strong><span>Engagements</span></div>
         </div>
       </div>
-    </section>
+      <div class="card-base hero-panel">
+        <p class="eyebrow">Core focus areas</p>
+        <div class="tag-list">
+          <span class="tag">Marketing Strategy</span><span class="tag">Customer Strategy</span><span class="tag">Digital Marketing</span><span class="tag">Brand Positioning</span><span class="tag">First-Party Data</span><span class="tag">Go-to-Market</span><span class="tag">CX Design</span><span class="tag">Campaign Enablement</span><span class="tag">Segmentation</span><span class="tag">Content Strategy</span><span class="tag">Analytics &amp; Insights</span><span class="tag">Process Improvement</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section style="background:var(--color-surface)">
-      <div class="container">
-        <p class="eyebrow">Tools &amp; Certifications</p>
-        <h2>What I work with</h2>
-        <div class="lists-2">
-          <div class="list-card">
-            <h3>Marketing &amp; analytics tools</h3>
-            <ul style="padding-left:1.1rem;margin-top:var(--space-4)">
-              <li>Google Analytics 4 (GA4)</li>
-              <li>SEMRush &amp; Ahrefs</li>
-              <li>HubSpot</li>
-              <li>Salesforce Marketing Cloud</li>
-              <li>Buffer &amp; Mailchimp</li>
-              <li>Power BI</li>
-              <li>SQL</li>
-              <li>Screaming Frog</li>
-            </ul>
-          </div>
-          <div class="list-card">
-            <h3>Strategy &amp; delivery tools</h3>
-            <ul style="padding-left:1.1rem;margin-top:var(--space-4)">
-              <li>Mural &amp; Miro</li>
-              <li>Jira &amp; Wrike</li>
-              <li>Microsoft Visio</li>
-              <li>Microsoft Office Suite</li>
-              <li>Figma (working knowledge)</li>
-              <li>Advanced Excel &amp; PowerPoint</li>
-            </ul>
-          </div>
-          <div class="list-card" style="grid-column:span 2">
-            <h3>Certifications</h3>
-            <div class="tag-list" style="margin-top:var(--space-3)">
-              <span class="tag">Google Analytics</span>
-              <span class="tag">HubSpot Content Marketing</span>
-              <span class="tag">Programmatic Advertising</span>
-              <span class="tag">Salesforce Marketing Cloud</span>
-              <span class="tag">CSPO</span>
-              <span class="tag">Claude 101 for Marketing</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<section class="cases-section" id="work">
+  <div class="container">
+    <p class="eyebrow">Selected work</p>
+    <h2>Case studies</h2>
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="fmcg">FMCG</button>
+      <button class="filter-btn" data-filter="healthcare">Healthcare</button>
+      <button class="filter-btn" data-filter="banking">Banking</button>
+      <button class="filter-btn" data-filter="fb">Food &amp; Beverage</button>
+      <button class="filter-btn" data-filter="digital">Digital &amp; Media</button>
+      <button class="filter-btn" data-filter="b2b">B2B</button>
+    </div>
+    <div class="cases" id="casesGrid">
 
-    <section>
-      <div class="container">
-        <div class="contact-wrap">
-          <div>
-            <p class="eyebrow">Get in touch</p>
-            <h2>Let's connect</h2>
-            <p>I am based in Delhi NCR and open to relevant conversations around marketing strategy, digital transformation, customer strategy, and consulting opportunities.</p>
+      <article class="case" data-sector="fmcg">
+        <div class="case-header">
+          <p class="case-meta">FMCG · India</p>
+          <div class="case-toggle">
+            <h3>First-party data strategy for a leading FMCG company</h3>
+            <span class="case-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
           </div>
-          <div class="cards-2">
-            <div class="contact-card">
-              <h3>Email</h3>
-              <p><a href="mailto:swativerma52@gmail.com" style="color:var(--color-primary)">swativerma52@gmail.com</a></p>
-            </div>
-            <div class="contact-card">
-              <h3>LinkedIn</h3>
-              <p><a href="https://www.linkedin.com/in/swati52" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary)">linkedin.com/in/swati52</a></p>
-            </div>
-            <div class="contact-card">
-              <h3>Location</h3>
-              <p>Delhi NCR, India</p>
-            </div>
+          <span class="sector-pill" style="background:#e0f2fe;color:#0369a1;">FMCG</span>
+        </div>
+        <div class="case-summary"><p>A major FMCG brand wanted to improve targeted marketing through stronger first-party data acquisition and activation.</p></div>
+        <div class="case-detail">
+          <ul>
+            <li>Developed a 1P data strategy aligned to campaign targeting needs</li>
+            <li>Created customer segments for more precise digital communications</li>
+            <li>Coordinated with martech and agency partners on data capture and compliance</li>
+          </ul>
+          <div class="impact"><p class="impact-label">Outcome</p><p>Delivered a data strategy and segmentation framework that enabled more targeted campaign communications and improved martech partner alignment.</p></div>
+        </div>
+      </article>
+
+      <article class="case" data-sector="b2b">
+        <div class="case-header">
+          <p class="case-meta">Automotive · India</p>
+          <div class="case-toggle">
+            <h3>SEO and content strategy for a leading automotive brand</h3>
+            <span class="case-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
           </div>
+          <span class="sector-pill" style="background:#f0fdf4;color:#15803d;">Automotive</span>
+        </div>
+        <div class="case-summary"><p>A leading automotive company wanted to strengthen organic visibility and align digital content with high-intent search behaviour.</p></div>
+        <div class="case-detail">
+          <ul>
+            <li>Conducted keyword research and search term analysis to identify high-traffic opportunities</li>
+            <li>Used GA4 and SEMRush to assess website performance and SEO effectiveness</li>
+            <li>Supported data-led content and optimisation decisions for stronger digital visibility</li>
+          </ul>
+          <div class="impact"><p class="impact-label">Outcome</p><p>Delivered a structured SEO and content insight base that helped guide optimisation priorities and improve search-focused decision-making.</p></div>
+        </div>
+      </article>
+
+      <article class="case" data-sector="digital">
+        <div class="case-header">
+          <p class="case-meta">Digital Content &amp; Media · 2019</p>
+          <div class="case-toggle">
+            <h3>Content strategy and planning for a digital content brand</h3>
+            <span class="case-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          </div>
+          <span class="sector-pill" style="background:#faf5ff;color:#7e22ce;">Digital</span>
+        </div>
+        <div class="case-summary"><p>A digital content business needed a more structured content planning approach to improve publishing consistency and brand positioning.</p></div>
+        <div class="case-detail">
+          <ul>
+            <li>Developed a content plan and editorial calendar for social media platforms</li>
+            <li>Supported timely content creation and publishing workflows</li>
+            <li>Worked with WordPress, SEMRush, Ubersuggest, and Mouseflow</li>
+          </ul>
+          <div class="impact"><p class="impact-label">Outcome</p><p>Established a more consistent content planning cadence and stronger content operations foundation for digital publishing.</p></div>
+        </div>
+      </article>
+
+      <article class="case" data-sector="b2b">
+        <div class="case-header">
+          <p class="case-meta">Beauty &amp; Personal Care · Global</p>
+          <div class="case-toggle">
+            <h3>Competitive benchmarking for a global beauty brand</h3>
+            <span class="case-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          </div>
+          <span class="sector-pill" style="background:#fdf2f8;color:#9d174d;">B2B</span>
+        </div>
+        <div class="case-summary"><p>A global beauty brand needed sharper visibility into B2B customer trends and competitor activity to support strategic decision-making.</p></div>
+        <div class="case-detail">
+          <ul>
+            <li>Conducted in-depth competitive benchmarking and secondary research</li>
+            <li>Identified emerging B2B customer trends and competitor strategies</li>
+            <li>Translated findings into structured benchmarking outputs for stakeholders</li>
+          </ul>
+          <div class="impact"><p class="impact-label">Outcome</p><p>Delivered a benchmarking view of the competitive landscape that helped stakeholders assess market direction and strategic opportunity areas.</p></div>
+        </div>
+      </article>
+
+      <article class="case" data-sector="fb">
+        <div class="case-header">
+          <p class="case-meta">Food &amp; Beverage · Middle East</p>
+          <div class="case-toggle">
+            <h3>Marketing and operations transformation for a global F&amp;B franchise</h3>
+            <span class="case-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          </div>
+          <span class="sector-pill" style="background:#fff7ed;color:#c2410c;">F&amp;B</span>
+        </div>
+        <div class="case-summary"><p>A regional F&amp;B retail operator needed better visibility into marketing and store operations workflows to reduce bottlenecks.</p></div>
+        <div class="case-detail">
+          <ul>
+            <li>Mapped current-state marketing and store processes end-to-end</li>
+            <li>Identified inefficiencies and redundancies across functions</li>
+            <li>Recommended target operating model improvements</li>
+          </ul>
+          <div class="impact"><p class="impact-label">Outcome</p><p>Produced a process assessment with prioritised recommendations that enabled the client to reduce cross-functional friction and improve operational clarity.</p></div>
+        </div>
+      </article>
+
+      <article class="case" data-sector="healthcare">
+        <div class="case-header">
+          <p class="case-meta">Healthcare · North America</p>
+          <div class="case-toggle">
+            <h3>Commercialisation strategy for a healthcare data platform</h3>
+            <span class="case-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          </div>
+          <span class="sector-pill" style="background:#ecfdf5;color:#065f46;">Healthcare</span>
+        </div>
+        <div class="case-summary"><p>A leading pharmacy solutions provider wanted clarity on its data platform value proposition, customer segments, and monetisation pathways.</p></div>
+        <div class="case-detail">
+          <ul>
+            <li>Conducted stakeholder interviews to identify key offerings and customer needs</li>
+            <li>Translated insights into potential monetisation models</li>
+            <li>Supported competitive analysis to sharpen positioning and commercial strategy</li>
+          </ul>
+          <div class="impact"><p class="impact-label">Outcome</p><p>Delivered a structured commercialisation framework and segment-level value propositions used to guide platform go-to-market planning.</p></div>
+        </div>
+      </article>
+
+      <article class="case" data-sector="digital">
+        <div class="case-header">
+          <p class="case-meta">Digital Services · Europe</p>
+          <div class="case-toggle">
+            <h3>Audience insight and communication planning for a digital platform</h3>
+            <span class="case-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          </div>
+          <span class="sector-pill" style="background:#faf5ff;color:#7e22ce;">Digital</span>
+        </div>
+        <div class="case-summary"><p>A digital platform wanted to better understand usage behaviour and audience patterns to shape more effective communication planning.</p></div>
+        <div class="case-detail">
+          <ul>
+            <li>Analysed website usage survey data to identify user patterns and behavioural trends</li>
+            <li>Assessed target audience characteristics and emerging themes from the data</li>
+            <li>Used insights to support communication strategy development</li>
+          </ul>
+          <div class="impact"><p class="impact-label">Outcome</p><p>Produced audience insight inputs that helped inform communication planning and improve relevance of messaging decisions.</p></div>
+        </div>
+      </article>
+
+      <article class="case" data-sector="b2b">
+        <div class="case-header">
+          <p class="case-meta">B2B Manufacturing · Global</p>
+          <div class="case-toggle">
+            <h3>Sustainability-led brand positioning for a global materials business</h3>
+            <span class="case-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          </div>
+          <span class="sector-pill" style="background:#fdf2f8;color:#9d174d;">B2B</span>
+        </div>
+        <div class="case-summary"><p>A global materials business needed a stronger sustainability story to position the brand more competitively in international B2B markets.</p></div>
+        <div class="case-detail">
+          <ul>
+            <li>Identified key sustainability KPIs relevant to the industry</li>
+            <li>Shaped messaging to articulate implemented practices compellingly</li>
+            <li>Supported development of a sustainability-led marketing campaign</li>
+          </ul>
+          <div class="impact"><p class="impact-label">Outcome</p><p>Delivered a sustainability positioning framework and campaign narrative that strengthened the brand's credibility in international B2B markets.</p></div>
+        </div>
+      </article>
+
+      <article class="case" data-sector="healthcare">
+        <div class="case-header">
+          <p class="case-meta">Analytics Consulting · Global</p>
+          <div class="case-toggle">
+            <h3>Pre-sales and solution design for sales-force optimisation</h3>
+            <span class="case-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          </div>
+          <span class="sector-pill" style="background:#ecfdf5;color:#065f46;">Healthcare</span>
+        </div>
+        <div class="case-summary"><p>At a leading analytics and consulting firm, supported pre-sales consulting and solution discovery for sales-operations optimisation work.</p></div>
+        <div class="case-detail">
+          <ul>
+            <li>Prepared proof-of-concepts and pilot implementations</li>
+            <li>Designed incentive compensation plans for pharma clients</li>
+            <li>Facilitated stakeholder workshops to uncover pain points</li>
+          </ul>
+          <div class="impact"><p class="impact-label">Outcome</p><p>Supported multiple successful pre-sales engagements resulting in new client wins and pilot deployments for sales-force effectiveness solutions.</p></div>
+        </div>
+      </article>
+
+      <article class="case" data-sector="banking">
+        <div class="case-header">
+          <p class="case-meta">Retail Banking · UK</p>
+          <div class="case-toggle">
+            <h3>Customer experience review for a leading retail bank</h3>
+            <span class="case-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          </div>
+          <span class="sector-pill" style="background:#eff6ff;color:#1d4ed8;">Banking</span>
+        </div>
+        <div class="case-summary"><p>A major retail bank was looking to improve customer outcomes while reducing effort across service processes.</p></div>
+        <div class="case-detail">
+          <ul>
+            <li>Conducted end-to-end service experience reviews with stakeholders</li>
+            <li>Shaped a scalable CX review methodology</li>
+            <li>Identified high-impact improvement opportunities across customer touchpoints</li>
+          </ul>
+          <div class="impact"><p class="impact-label">Outcome</p><p>Delivered a CX improvement roadmap and a repeatable review methodology adopted by the client's internal team for ongoing service evaluation.</p></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <p class="eyebrow">Experience</p>
+    <h2>Career snapshot</h2>
+    <div class="exp-grid">
+      <div class="exp-card card-base">
+        <span class="exp-date">Aug 2022 — Present</span>
+        <h3>Global Strategy &amp; CX Consultancy</h3>
+        <p class="exp-role">Manager</p>
+        <p>Leading customer strategy, marketing transformation, CX, and digital engagements for clients across India and international markets.</p>
+      </div>
+      <div class="exp-card card-base">
+        <span class="exp-date">Jun 2021 — Jul 2022</span>
+        <h3>Global Analytics &amp; Life Sciences Consultancy</h3>
+        <p class="exp-role">Senior Associate</p>
+        <p>Pre-sales consulting, solution design, and delivery of sales-force and marketing optimisation work for global life sciences clients.</p>
+      </div>
+      <div class="exp-card card-base">
+        <span class="exp-date">Nov 2017 — May 2018</span>
+        <h3>Global Food Delivery Platform</h3>
+        <p class="exp-role">Global Content Associate</p>
+        <p>Contributed to business and growth-oriented content work in a fast-moving international consumer platform environment.</p>
+      </div>
+      <div class="exp-card card-base">
+        <span class="exp-date">May 2017 — Oct 2017</span>
+        <h3>Early-Stage Technology Startup</h3>
+        <p class="exp-role">Business Development Associate</p>
+        <p>Early-career experience strengthening structured coordination and business problem-solving in a startup environment.</p>
+      </div>
+      <div class="exp-card card-base edu-card">
+        <span class="exp-date">Education</span>
+        <h3>MBA — Marketing &amp; Strategy</h3>
+        <p>IIM Indore, 2021.</p>
+        <h3 style="margin-top:1rem">BTech — Chemical Engineering</h3>
+        <p>HBTI Kanpur, 2016.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--color-surface)" id="tools">
+  <div class="container">
+    <p class="eyebrow">Tools &amp; Certifications</p>
+    <h2>What I work with</h2>
+    <div class="lists-2">
+      <div class="list-card card-base">
+        <h3>Marketing &amp; analytics</h3>
+        <ul><li>Google Analytics 4 (GA4)</li><li>SEMRush &amp; Ahrefs</li><li>HubSpot</li><li>Salesforce Marketing Cloud</li><li>Buffer &amp; Mailchimp</li><li>Power BI</li><li>SQL</li><li>Screaming Frog</li></ul>
+      </div>
+      <div class="list-card card-base">
+        <h3>Strategy &amp; delivery</h3>
+        <ul><li>Mural &amp; Miro</li><li>Jira &amp; Wrike</li><li>Microsoft Visio</li><li>Microsoft Office Suite</li><li>Figma (working knowledge)</li><li>Advanced Excel &amp; PowerPoint</li></ul>
+      </div>
+      <div class="list-card card-base span-2">
+        <h3>Certifications</h3>
+        <div class="tag-list" style="margin-top:0.75rem">
+          <span class="tag">Google Analytics</span><span class="tag">HubSpot Content Marketing</span><span class="tag">Programmatic Advertising</span><span class="tag">Salesforce Marketing Cloud</span><span class="tag">CSPO</span><span class="tag">Claude 101 for Marketing</span>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-wrap">
+      <div>
+        <p class="eyebrow">Get in touch</p>
+        <h2>Let's connect</h2>
+        <p>Based in Delhi NCR and open to conversations around marketing strategy, digital transformation, customer strategy, and consulting opportunities.</p>
+      </div>
+      <div class="cards-2">
+        <div class="contact-card card-base"><h3>Email</h3><p><a href="mailto:swativerma52@gmail.com">swativerma52@gmail.com</a></p></div>
+        <div class="contact-card card-base"><h3>LinkedIn</h3><p><a href="https://www.linkedin.com/in/swati52" target="_blank" rel="noopener">linkedin.com/in/swati52</a></p></div>
+        <div class="contact-card card-base"><h3>Location</h3><p>Delhi NCR, India</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span>© 2025 Swati Verma</span>
+      <span>Marketing Strategy · CX · Digital</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const filterBar = document.getElementById('filterBar');
+  const cases = document.querySelectorAll('.case');
+  filterBar.addEventListener('click', e => {
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    cases.forEach(c => c.classList.toggle('hidden', f !== 'all' && c.dataset.sector !== f));
+  });
+
+  document.getElementById('casesGrid').addEventListener('click', e => {
+    const h = e.target.closest('.case-header');
+    if (h) h.closest('.case').classList.toggle('open');
+  });
+
+  const reveals = document.querySelectorAll('section, .case, .exp-card, .list-card, .contact-card, .stat');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.06 });
+  reveals.forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+    el.style.transition = `opacity 0.5s ease ${i * 0.035}s, transform 0.5s ease ${i * 0.035}s`;
+    obs.observe(el);
+  });
+</script>
 </body>
 </html>
