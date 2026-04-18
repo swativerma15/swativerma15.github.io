@@ -25,7 +25,6 @@
     html { scroll-behavior: smooth; }
     body { font-family: var(--font-body); font-size: 1rem; line-height: 1.68; background: var(--color-bg); color: var(--color-text); }
 
-    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       background: rgba(255,255,255,0.93); backdrop-filter: blur(14px);
@@ -40,7 +39,6 @@
     .nav-cta { font-size: 0.77rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-primary); text-decoration: none; padding: 0.42rem 1.1rem; border: 1.5px solid var(--color-primary); border-radius: 6px; transition: background 0.15s, color 0.15s; }
     .nav-cta:hover { background: var(--color-primary); color: #fff; }
 
-    /* LAYOUT */
     .container { width: min(calc(100% - 2rem), var(--content)); margin: auto; }
     section { padding: 5rem 0; }
     .eyebrow { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-primary); font-weight: 700; margin-bottom: 0.75rem; }
@@ -52,7 +50,6 @@
 
     .card-base { background: linear-gradient(160deg, #fff 60%, var(--color-surface)); border: 1px solid var(--color-border); border-radius: var(--radius-xl); box-shadow: var(--shadow); }
 
-    /* HERO */
     .hero { padding-top: 9rem; padding-bottom: 5rem; border-bottom: 1px solid var(--color-border); }
     .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: start; }
     .hero-tagline { margin-top: 1.25rem; font-size: 1.05rem; max-width: 54ch; color: var(--color-muted); font-weight: 400; line-height: 1.7; }
@@ -69,7 +66,6 @@
     .stat strong { display: block; font-size: 2.4rem; font-family: var(--font-display); color: var(--color-primary); line-height: 1; margin-bottom: 0.4rem; }
     .stat span { font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-faint); font-weight: 500; }
 
-    /* CASE STUDIES */
     .cases-section { background: var(--color-surface); }
     .filter-bar { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
     .filter-btn { font-family: var(--font-body); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.42rem 1.1rem; border-radius: 999px; border: 1px solid var(--color-border); background: #fff; color: var(--color-muted); cursor: pointer; transition: all 0.15s; }
@@ -96,7 +92,6 @@
     .impact-label { font-size: 0.67rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-primary); font-weight: 700; margin-bottom: 0.3rem; }
     .impact p { font-size: 0.85rem; }
 
-    /* EXPERIENCE */
     .exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
     .exp-card { padding: 1.75rem; display: flex; flex-direction: column; gap: 0.45rem; }
     .exp-date { font-size: 0.67rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-faint); font-weight: 700; }
@@ -105,7 +100,6 @@
     .exp-card p { font-size: 0.87rem; }
     .edu-card { grid-column: span 2; }
 
-    /* TOOLS */
     .lists-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
     .list-card { padding: 1.5rem; }
     .list-card h3 { font-size: 1rem; margin-bottom: 1rem; }
@@ -113,7 +107,6 @@
     .list-card ul li { font-size: 0.87rem; color: var(--color-muted); margin-bottom: 0.3rem; }
     .span-2 { grid-column: span 2; }
 
-    /* CONTACT */
     .contact-wrap { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 3rem; align-items: start; }
     .cards-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
     .contact-card { padding: 1.5rem; }
@@ -121,7 +114,6 @@
     .contact-card a { color: var(--color-primary); text-decoration: none; font-weight: 500; font-size: 0.9rem; }
     .contact-card p { font-size: 0.9rem; font-weight: 500; color: var(--color-text); }
 
-    /* FOOTER */
     footer { padding: 1.75rem 0; border-top: 1px solid var(--color-border); }
     .footer-inner { display: flex; justify-content: space-between; align-items: center; font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-faint); }
 
@@ -155,7 +147,8 @@
       <div>
         <p class="eyebrow">Marketing Strategy · Digital Marketing · Data-Driven Growth</p>
         <h1>Swati<br>Verma</h1>
-        <p class="hero-tagline">Marketing strategist and consultant with 6+ years bridging customer strategy, first-party data, digital marketing, and CX transformation — across FMCG, healthcare, banking, and F&B, in India and internationally.</p>
+        <!-- CHANGE 1: Updated tagline -->
+        <p class="hero-tagline">Marketing strategist and consultant with 6+ years of experience focused on customer strategy, first-party data, digital marketing, and CX transformation across FMCG, healthcare, banking, and F&amp;B, in India and internationally.</p>
         <div class="hero-actions">
           <a href="#work" class="btn-primary">View case studies</a>
           <a href="#contact" class="btn-ghost">Get in touch</a>
@@ -181,6 +174,7 @@
   <div class="container">
     <p class="eyebrow">Selected work</p>
     <h2>Case studies</h2>
+    <!-- CHANGE 3: Added Automotive filter tab -->
     <div class="filter-bar" id="filterBar">
       <button class="filter-btn active" data-filter="all">All</button>
       <button class="filter-btn" data-filter="fmcg">FMCG</button>
@@ -188,6 +182,7 @@
       <button class="filter-btn" data-filter="banking">Banking</button>
       <button class="filter-btn" data-filter="fb">Food &amp; Beverage</button>
       <button class="filter-btn" data-filter="digital">Digital &amp; Media</button>
+      <button class="filter-btn" data-filter="automotive">Automotive</button>
       <button class="filter-btn" data-filter="b2b">B2B</button>
     </div>
     <div class="cases" id="casesGrid">
@@ -212,7 +207,8 @@
         </div>
       </article>
 
-      <article class="case" data-sector="b2b">
+      <!-- CHANGE 3: Automotive case now has data-sector="automotive" -->
+      <article class="case" data-sector="automotive">
         <div class="case-header">
           <p class="case-meta">Automotive · India</p>
           <div class="case-toggle">
@@ -232,9 +228,10 @@
         </div>
       </article>
 
+      <!-- CHANGE 2: Digital Content & Media meta updated to India -->
       <article class="case" data-sector="digital">
         <div class="case-header">
-          <p class="case-meta">Digital Content &amp; Media · 2019</p>
+          <p class="case-meta">Digital Content &amp; Media · India</p>
           <div class="case-toggle">
             <h3>Content strategy and planning for a digital content brand</h3>
             <span class="case-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
@@ -252,14 +249,15 @@
         </div>
       </article>
 
-      <article class="case" data-sector="b2b">
+      <!-- CHANGE 3: Beauty & Personal Care moved to data-sector="fmcg" -->
+      <article class="case" data-sector="fmcg">
         <div class="case-header">
           <p class="case-meta">Beauty &amp; Personal Care · Global</p>
           <div class="case-toggle">
             <h3>Competitive benchmarking for a global beauty brand</h3>
             <span class="case-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
           </div>
-          <span class="sector-pill" style="background:#fdf2f8;color:#9d174d;">B2B</span>
+          <span class="sector-pill" style="background:#e0f2fe;color:#0369a1;">FMCG</span>
         </div>
         <div class="case-summary"><p>A global beauty brand needed sharper visibility into B2B customer trends and competitor activity to support strategic decision-making.</p></div>
         <div class="case-detail">
@@ -400,28 +398,29 @@
   <div class="container">
     <p class="eyebrow">Experience</p>
     <h2>Career snapshot</h2>
+    <!-- CHANGE 4: Real company names restored -->
     <div class="exp-grid">
       <div class="exp-card card-base">
         <span class="exp-date">Aug 2022 — Present</span>
-        <h3>Global Strategy &amp; CX Consultancy</h3>
+        <h3>frog, Capgemini Invent</h3>
         <p class="exp-role">Manager</p>
         <p>Leading customer strategy, marketing transformation, CX, and digital engagements for clients across India and international markets.</p>
       </div>
       <div class="exp-card card-base">
         <span class="exp-date">Jun 2021 — Jul 2022</span>
-        <h3>Global Analytics &amp; Life Sciences Consultancy</h3>
+        <h3>Axtria</h3>
         <p class="exp-role">Senior Associate</p>
         <p>Pre-sales consulting, solution design, and delivery of sales-force and marketing optimisation work for global life sciences clients.</p>
       </div>
       <div class="exp-card card-base">
         <span class="exp-date">Nov 2017 — May 2018</span>
-        <h3>Global Food Delivery Platform</h3>
+        <h3>Delivery Hero</h3>
         <p class="exp-role">Global Content Associate</p>
         <p>Contributed to business and growth-oriented content work in a fast-moving international consumer platform environment.</p>
       </div>
       <div class="exp-card card-base">
         <span class="exp-date">May 2017 — Oct 2017</span>
-        <h3>Early-Stage Technology Startup</h3>
+        <h3>Anuation</h3>
         <p class="exp-role">Business Development Associate</p>
         <p>Early-career experience strengthening structured coordination and business problem-solving in a startup environment.</p>
       </div>
